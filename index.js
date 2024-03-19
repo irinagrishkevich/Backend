@@ -1,20 +1,24 @@
 const http = require('http');
+const fs = require('fs');
 
 const server = http.createServer((req,res) =>{
     res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
-
+    let file = 'index'
     switch (req.url){
         case '/about':
-            res.write('<h1>about page</h1>');
+            file = 'about'
             break
         case '/contact':
-            res.write('<h1>contact page</h1>');
+            file = 'contact'
             break
-        default:
-            res.write('<h1>index page</h1>')
     }
 
-    res.end()
+    fs.readFile('./views/'+file+'.html', 'utf8', (err, data) =>{
+        res.write(data)
+        res.end()
+    })
+
+
 })
 
 server.listen((process.argv[2]), ()=>{
