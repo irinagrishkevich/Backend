@@ -1,3 +1,5 @@
+import {Products} from "./components/products.js";
+
 export class Router{
     constructor() {
         this.routes = [
@@ -30,7 +32,7 @@ export class Router{
                 title: 'Продукты',
                 view: 'views/products.html',
                 load: ()=>{
-
+                    new Products()
                 }
             },
         ];
