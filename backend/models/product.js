@@ -25,6 +25,7 @@ class ProductModel {
                     try {
                         const products = JSON.parse(data);
                         const product = products.find(item => parseInt(item.id) === parseInt(id))
+
                         if (product) {
                             resolve(product);
                         } else {
