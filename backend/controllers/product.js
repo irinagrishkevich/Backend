@@ -4,10 +4,7 @@ class ProductController{
     static async getProducts(req, res){
         //get data
         const products = await ProductModel.findAll()
-        res.render('products',{
-            title: 'PRODUCTS',
-            products: products
-        })
+        res.send(products)
     }
 }
 

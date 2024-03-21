@@ -8,7 +8,7 @@ export class Products{
     }
 
     async getProducts(){
-        const response = await fetch('/api/products')
+        const response = await fetch('http://localhost:3001/api/products')
         return await response.json()
     }
 
@@ -20,15 +20,15 @@ export class Products{
 
                 const titleElement = document.createElement('div')
                 titleElement.className = 'title'
-                titleElement.className = product.title
+                titleElement.innerHTML = product.title
 
                 const descriptionElement = document.createElement('div')
                 descriptionElement.className = 'description'
-                descriptionElement.className = product.description
+                descriptionElement.innerHTML = product.description
 
                 const priceElement = document.createElement('div')
                 priceElement.className = 'price'
-                priceElement.className = product.price + ' $'
+                priceElement.innerHTML = product.price + ' $'
 
                 productElement.appendChild(titleElement)
                 productElement.appendChild(descriptionElement)
